@@ -1,0 +1,44 @@
+
+<div class="panel panel-primary">
+  <div class="panel-body">
+
+    <p-table #dt [columns]="cols" [value]="paintingsArray" [paginator]="true" [rows]="10" sortMode="multiple">
+      <ng-template pTemplate="caption">
+        List of Paintings
+        <div class="ui-table-globalfilter-container">
+          <input type="text" pInputText size="50" placeholder="Search..." (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:250px;">
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field" [ngSwitch]="col.field">
+            {{col.header}}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+            <input *ngSwitchCase="'title'" pInputText type="text" placeholder="Search in title" class="ui-column-filter" style="width: 100%;" (input)="dt.filter($event.target.value, col.field, 'contains')">
+            <p-multiSelect *ngSwitchCase="'status'" [options]="statusList" optionLabel="label" [filter]="false" [style]="{'width':'100%'}"  defaultLabel="Filter on status" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+            <p-multiSelect *ngSwitchCase="'category'" [options]="categoryList" optionLabel="label" [filter]="false" [style]="{'width':'100%'}"  defaultLabel="Filter on category" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+          </th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-painting>
+        <tr>
+          <td *ngFor="let col of cols">
+            {{painting[col.field]}}
+          </td>
+          <td>
+            <button (click)="deletePainting(painting.id)" class="btn btn-danger">Delete</button>
+            <button (click)="paintingDetails(painting.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="summary">
+        There are {{paintingsArray?.length}} paintings
+      </ng-template>
+    </p-table>
+
+  </div>
+</div>

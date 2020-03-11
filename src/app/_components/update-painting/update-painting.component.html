@@ -1,0 +1,70 @@
+<h3>Update Painting</h3>
+<hr>
+<div [hidden]="submitted" style="width: 400px;">
+
+  <form [formGroup]="updatePaintingForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" id="updatePaintingForm">
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" required [formControl]="title" name="title">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description" [formControl]="description" required name="description">
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" id="price" [formControl]="price" required name="price">
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select class="form-control" id="category" [formControl]="category" required name="category">
+        <option *ngFor="let category of categoryList" [ngValue]="category">{{category}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select class="form-control" id="status" [formControl]="status" required name="status">
+        <option *ngFor="let status of statusList" [ngValue]="status">{{status}}</option>
+      </select>
+    </div>
+
+
+    <br>
+    <h3>Update Images</h3>
+    <hr>
+    <label><b>Current images: </b></label><br>
+    <div class="current-images-preview mt-2" *ngIf="images">
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-xl-6" id="images" *ngFor="let image of images">
+          <div class="card mb-3">
+            <button type="button" (click)="deleteImage(image.id)" class="btn btn-danger remove-btn">x</button>
+            <img [src]="convertImage(image)" class="card-img-top" [alt]="image.fileName">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="files">Add new file(s)</label>
+      <input type="file" class="form-control" id="files" multiple (change)="detectFiles($event)"
+             accept="image/x-png,image/jpeg">
+    </div>
+    <div class="images-preview mt-2" *ngIf="newFileUrls.length">
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-xl-6" id="new_images" *ngFor="let url of newFileUrls; let i = index;">
+          <div class="card mb-3">
+            <button type="button" (click)="removeImage(i)" class="btn btn-danger remove-btn">x</button>
+            <img [src]="url" class="card-img-top" alt="Image Preview">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

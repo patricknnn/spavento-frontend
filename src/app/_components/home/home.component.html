@@ -1,0 +1,14 @@
+<div class="container">
+  <header class="jumbotron">
+    <p>Home</p>
+  </header>
+</div>
+
+<!-- Painting list -->
+<div id="paintingList">
+  <div id="paintingListItem"  *ngFor="let painting of paintingList">
+    <img class="img-thumbnail" [src]="convertImage(painting.image)" [alt]="painting.image.fileName">
+    <p>{{painting.painting.title}}</p>
+  </div>
+</div>
+

@@ -1,0 +1,35 @@
+<h2>Painting Details</h2>
+
+<hr/>
+<div *ngIf="painting">
+  <div>
+    <label><b>Title: </b></label>{{painting.title}}
+  </div>
+  <div>
+    <label><b>Description: </b></label>{{painting.description}}
+  </div>
+  <div>
+    <label><b>Price: </b></label>{{painting.price}}
+  </div>
+  <div>
+    <label><b>Status: </b></label>{{painting.status}}
+  </div>
+  <div>
+    <label><b>Category: </b></label>{{painting.category}}
+  </div>
+  <div>
+    <label><b>Date added: </b></label>{{painting.dateAdded}}
+  </div>
+</div>
+
+<div *ngIf="images">
+  <div>
+    <label><b>Images: </b></label><br>
+    <img *ngFor="let image of images" [src]="convertImage(image)" [alt]="image.fileName"><br>
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="editPainting()" class="btn btn-warning">Edit Painting</button><br>
+<button (click)="list()" class="btn btn-primary">Back to Painting List</button><br>

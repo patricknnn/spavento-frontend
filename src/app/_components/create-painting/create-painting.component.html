@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+    <div class="ui-g ui-fluid">
+
+      <div class="ui-g-12 ui-md-12">
+        <h3>Add Painting</h3>
+      </div>
+
+      <div [hidden]="submitted">
+        <form [formGroup]="addPaintingForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" id="addPaintingForm">
+
+          <div class="ui-g-12 ui-md-12">
+            <div class="ui-inputgroup full-width">
+              <span class="ui-inputgroup-addon"><i class="pi pi-file" style="line-height: 1.25;"></i></span>
+              <input type="text" id="title" required [formControl]="title" name="title" pInputText
+                     placeholder="Title">
+            </div>
+          </div>
+
+          <div class="ui-g-12 ui-md-12">
+            <label for="description">Description</label>
+            <p-editor id="description" class="full-width" [formControl]="description" [style]="{'height':'320px'}">
+              <p-header>
+                <span class="ql-format-group">
+                  <!-- Font size options -->
+                  <span class="ql-formats">
+                    <select class="ql-size">
+                      <option value="small"></option>
+                      <option selected></option>
+                      <option value="large"></option>
+                      <option value="huge"></option>
+                    </select>
+                  </span>
+                  <!-- Text format options -->
+                  <span class="ql-formats">
+                    <button class="ql-bold"></button>
+                    <button class="ql-italic"></button>
+                    <button class="ql-strike"></button>
+                  </span>
+                  <!-- List options -->
+                  <span class="ql-formats">
+                    <button class="ql-list" value="ordered"></button>
+                    <button class="ql-list" value="bullet"></button>
+                  </span>
+                </span>
+              </p-header>
+            </p-editor>
+          </div>
+
+          <div class="ui-g-12 ui-md-12">
+            <div class="ui-inputgroup full-width">
+              <span class="ui-inputgroup-addon"><i class="pi pi-money-bill" style="line-height: 1.25;"></i></span>
+              <input type="text" id="price" required [formControl]="price" name="price" pInputText
+                     placeholder="Price">
+            </div>
+          </div>
+
+          <div class="ui-g-12 ui-md-12">
+            <label for="category">Category</label>
+            <p-dropdown [options]="categoryList" [formControl]="category" optionLabel="label" id="category" class="full-width" name="category" required [showClear]="true"></p-dropdown>
+          </div>
+
+          <div class="ui-g-12 ui-md-12">
+            <label for="status">Status</label>
+            <p-dropdown [options]="statusList" [formControl]="status" optionLabel="label" id="status" class="full-width" name="status" required [showClear]="true"></p-dropdown>
+          </div>
+
+          <div class="ui-g-12 ui-md-12">
+            <label for="files">Image(s)</label>
+            <p-fileUpload name="files"
+                          id="files"
+                          class="full-width"
+                          cancelLabel="Remove all"
+                          multiple="multiple"
+                          accept="image/*"
+                          maxFileSize="5000000"
+                          [showUploadButton]="false"
+                          (onSelect)="addFilesToCurrentFiles($event)"
+                          (onRemove)="removeFileFromCurrentFiles($event)"
+                          (onClear)="clearCurrentFiles()">
+            </p-fileUpload>
+          </div>
+
+          <div class="ui-g-12 ui-md-12">
+            <p-button icon="pi pi-check" label="Submit" type="submit" [disabled]="!formValid"></p-button>
+          </div>
+
+        </form>
+      </div>
+
+      <div [hidden]="!submitted">
+        <div class="ui-g-12 ui-md-12">
+          <h4>Submitted successfully!</h4>
+          <p-button icon="pi pi-check" label="Add" (click)="newPainting()" [disabled]="!formValid"></p-button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

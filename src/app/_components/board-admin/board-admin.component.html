@@ -1,0 +1,15 @@
+<div class="container">
+  <header class="jumbotron">
+
+    <div *ngIf="isAdmin">
+      <button>
+        <a routerLink="paintings" class="nav-link" routerLinkActive="active">Painting List</a>
+      </button>
+      <button>
+        <a routerLink="paintings/add" class="nav-link" routerLinkActive="active">Add Painting</a>
+      </button>
+    </div>
+
+    <p *ngIf="!isAdmin">Access denied. Please <a href="/login">log in.</a></p>
+  </header>
+</div>
