@@ -25,7 +25,6 @@ const routes: Routes = [
   {path: 'admin/paintings/add', component: CreatePaintingComponent},
   {path: 'admin/paintings/update/:id', component: UpdatePaintingComponent},
   {path: 'admin/paintings/details/:id', component: DetailsPaintingComponent},
-
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
