@@ -1,3 +1,4 @@
+import { NavbarComponent } from './_components/navbar/navbar.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
@@ -35,7 +36,8 @@ import {DropdownModule, EditorModule, FileUploadModule, InputTextModule, MultiSe
     CreatePaintingComponent,
     DetailsPaintingComponent,
     ListPaintingComponent,
-    UpdatePaintingComponent
+    UpdatePaintingComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

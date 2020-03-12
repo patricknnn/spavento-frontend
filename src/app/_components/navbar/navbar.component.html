@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Spavento</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a href="/home" class="nav-link" routerLink="home">Home </a>
+      </li>
+      <li class="nav-item">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin</a>
+      </li>
+    </ul>
+
+    <!-- Navbar Button -->
+    <p-button *ngIf="!isLoggedIn" icon="pi pi-user" label="Sign in" class="navbar-right bg-transparent txt-dark" [routerLink]="['login']" routerLinkActive="router-link-active"></p-button>
+    <p-button *ngIf="isLoggedIn" icon="pi pi-user" label="{{username}}" class="navbar-right bg-transparent txt-dark" [routerLink]="['profile']" routerLinkActive="router-link-active"></p-button>
+    <p-button *ngIf="isLoggedIn" (click)="logout()" icon="pi pi-exit" label="Sign out" class="navbar-right bg-transparent txt-dark" [routerLink]="['profile']" routerLinkActive="router-link-active"></p-button>
+  </div>
+
+</nav>
