@@ -1,24 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-html, body { 
+html { 
     height: 100%; 
+    font-family: 'Varela Round' !important;
 }
-body { 
-    margin: 0; 
-    font-family: 'Poppins', sans-serif;
-    padding-top: 100px;
+body {
+  font-family: 'Nunito';
+  letter-spacing: 0.0625em;
 }
 
-.navbar-container {
-    position: sticky !important;
-    display: block !important;
- }
+a {
+  color: #64a19d;
+}
 
- .bg-transparent {
-    background: rgba(0, 0, 0, 0) !important;
- }
+a:focus, a:hover {
+  text-decoration: none;
+  color: #3c6360;
+}
 
- .txt-dark {
-     color: #333;
- }
+.bg-black {
+  background-color: #161616 !important;
+}
+
+.bg-primary {
+  background-color: #64a19d !important;
+}
+
+.text-primary {
+  color: #64a19d !important;
+}
+
+.btn {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  font-family: 'Varela Round';
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  border: 0;
+}
+
+.btn-primary {
+  background-color: #64a19d;
+}
+
+.btn-primary:hover {
+  background-color: #4f837f;
+}
+
+.btn-primary:focus {
+  background-color: #4f837f;
+  color: white;
+}
+
+.btn-primary:active {
+  background-color: #467370 !important;
+}

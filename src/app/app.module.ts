@@ -22,6 +22,12 @@ import {ListPaintingComponent} from './_components/list-painting/list-painting.c
 import {UpdatePaintingComponent} from './_components/update-painting/update-painting.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DropdownModule, EditorModule, FileUploadModule, InputTextModule, MultiSelectModule, TableModule} from 'primeng';
+import { HeroComponent } from './_components/hero/hero.component';
+import { AboutComponent } from './_components/about/about.component';
+import { FeaturedComponent } from './_components/featured/featured.component';
+import { ContactComponent } from './_components/contact/contact.component';
+import { FooterComponent } from './_components/footer/footer.component';
+import { ModalGalleryComponent } from './_components/modal-gallery/modal-gallery.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,13 @@ import {DropdownModule, EditorModule, FileUploadModule, InputTextModule, MultiSe
     DetailsPaintingComponent,
     ListPaintingComponent,
     UpdatePaintingComponent,
-    NavbarComponent
+    NavbarComponent,
+    HeroComponent,
+    AboutComponent,
+    FeaturedComponent,
+    ModalGalleryComponent,
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
